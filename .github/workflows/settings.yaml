@@ -36,19 +36,19 @@ jobs:
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
-      echo "Running Test1 tests"
-      dotnet test TestProject1\TestProject1.csproj --verbosity normal
+        echo "Running Test1 tests"
+        dotnet test TestProject1/TestProject1.csproj --verbosity normal
 
     - name: Run Test2
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
-      echo "Running Test2 tests"
-      dotnet test TestProject2\TestProject2.csproj --verbosity normal
+        echo "Running Test2 tests"
+        dotnet test TestProject2/TestProject2.csproj --verbosity normal
 
     - name: Run Test3
       env:
         CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
-      echo "Running Test3 tests"
-      dotnet test TestProject3\TestProject3.csproj --verbosity normal
+        echo "Running Test3 tests"
+        dotnet test TestProject3/TestProject3.csproj --verbosity normal
