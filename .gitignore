@@ -1,0 +1,12 @@
+# Ignore all .vsidx files
+*.vsidx
+
+# Ignore the entire .vs directory (for Visual Studio-related files)
+.vs/
+
+# Ignore bin and obj directories (common for .NET projects)
+bin/
+obj/
+
+# Ignore specific file pattern within a subdirectory
+.vs/SeleniumIde/FileContentIndex/*.vsidx
