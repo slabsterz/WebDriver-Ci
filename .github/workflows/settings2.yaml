@@ -24,18 +24,7 @@ jobs:
     - name: Install Chrome
       run: |
         sudo apt-get update
-        sudo apt-get install -y wget
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
-
-    - name: Install ChromeDriver
-      run: |
-        CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-        CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION:0:2})
-        wget https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/chromedriver
-        sudo chmod +x /usr/local/bin/chromedriver
+        sudo apt-get install -y google-chrome-stable
 
     - name: Install dependencies
       run: dotnet restore SeleniumBasicExercise.sln
@@ -45,21 +34,25 @@ jobs:
 
     - name: Run TestProject1 tests
       env:
-        CHROMEWEBDRIVER: /usr/local/bin/chromedriver
+        CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
         echo "Running TestProject1 tests"
         dotnet test TestProject1/TestProject1.csproj --verbosity normal
 
     - name: Run TestProject2 tests
       env:
-        CHROMEWEBDRIVER: /usr/local/bin/chromedriver
+        CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
         echo "Running TestProject2 tests"
         dotnet test TestProject2/TestProject2.csproj --verbosity normal
 
     - name: Run TestProject3 tests
       env:
-        CHROMEWEBDRIVER: /usr/local/bin/chromedriver
+        CHROMEWEBDRIVER: /usr/bin/google-chrome
       run: |
         echo "Running TestProject3 tests"
         dotnet test TestProject3/TestProject3.csproj --verbosity normal
+
+
+
+
